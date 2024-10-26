@@ -13,6 +13,14 @@ const CodeCompare = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-500 to-indigo-800 flex flex-col items-center font-sans text-gray-100">
+      <header className="w-full p-6 bg-opacity-60 backdrop-blur-md shadow-lg text-center">
+        <h1 className="text-4xl font-bold tracking-tight mb-2">
+          Code Compare Tool
+        </h1>
+        <p className="text-lg opacity-90">
+          Effortlessly compare code changes with visual highlights
+        </p>
+      </header>
 
       <main className="flex flex-col items-center w-full p-6 space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
@@ -21,7 +29,7 @@ const CodeCompare = () => {
             <h2 className="text-lg font-semibold text-white mb-3">Left Code</h2>
             <textarea
               className="w-full p-3 border rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500 text-black"
-              rows="14"
+              rows="13"
               placeholder="Paste original code here..."
               value={leftCode}
               onChange={(e) => setLeftCode(e.target.value)}
@@ -38,7 +46,7 @@ const CodeCompare = () => {
             </h2>
             <textarea
               className="w-full p-3 border rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500 text-black"
-              rows="14"
+              rows="13"
               placeholder="Paste updated code here..."
               value={rightCode}
               onChange={(e) => setRightCode(e.target.value)}
