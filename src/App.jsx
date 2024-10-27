@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { diffLines } from "diff";
+import { diffChars } from "diff";
 
 const CodeCompare = () => {
   const [leftCode, setLeftCode] = useState("");
@@ -7,7 +7,7 @@ const CodeCompare = () => {
   const [diffOutput, setDiffOutput] = useState([]);
 
   const handleDiffCheck = () => {
-    const diffResult = diffLines(leftCode, rightCode);
+    const diffResult = diffChars(leftCode, rightCode);
     setDiffOutput(diffResult);
   };
 
@@ -71,9 +71,9 @@ const CodeCompare = () => {
           <div className="whitespace-pre-wrap text-sm leading-7">
             {diffOutput.length > 0 ? (
               diffOutput.map((part, index) => (
-                <div
+                <span
                   key={index}
-                  className={`px-2 py-1 rounded transition-colors ${
+                  className={`${
                     part.added
                       ? "bg-green-100 text-green-700"
                       : part.removed
@@ -82,7 +82,7 @@ const CodeCompare = () => {
                   }`}
                 >
                   {part.value}
-                </div>
+                </span>
               ))
             ) : (
               <p className="text-gray-500 italic">No differences found.</p>
